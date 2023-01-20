@@ -1,0 +1,48 @@
+.option {
+  align-items: center;
+  background: transparent;
+  border-radius: 0.75rem;
+  border: 2px solid #6066d0;
+  color: #6066d0;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 1.1rem;
+  font-weight: 500;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.option:hover {
+  background-color: #f9a826;
+  border-color: #f9a826;
+  color: #fff;
+}
+
+.correct {
+  background-color: #60bf88;
+  border-color: #60bf88;
+  color: #fff;
+}
+
+.incorrect {
+  background-color: #EA8282;
+  border-color: #EA8282;
+  color: #fff;
+}
+
+.option-index {
+  font-size: 1.35rem;
+  text-transform: uppercase;
+}
+
+.option-content {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  gap: 1rem;
+  justify-content: space-between;
+}
