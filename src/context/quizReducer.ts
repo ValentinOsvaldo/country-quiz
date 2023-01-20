@@ -57,6 +57,7 @@ export const quizReducer = (
       return {
         ...state,
         isFinishGame: false,
+        score: 0
       };
     case '[quiz] - finish game':
       return {
