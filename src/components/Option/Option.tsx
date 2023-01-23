@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { MdOutlineCancel, MdCheckCircleOutline } from 'react-icons/md';
 import { QuizContext } from '../../context';
 import styles from './Option.module.css';
 
@@ -28,12 +29,8 @@ export const Option: React.FC<Props> = ({ option, index }) => {
       </span>
       <div className={styles['option-content']}>
         <span>{option}</span>
-        {showAnswer && option === answer?.name && (
-          <span className="material-symbols-outlined">check_circle</span>
-        )}
-        {option === userAnswer && userAnswer !== answer?.name && (
-          <span className="material-symbols-outlined">cancel</span>
-        )}
+        {showAnswer && option === answer?.name && <MdCheckCircleOutline size={24} />}
+        {option === userAnswer && userAnswer !== answer?.name && <MdOutlineCancel size={24} />}
       </div>
     </button>
   );

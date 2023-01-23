@@ -30,7 +30,7 @@ export const QuizProvider: React.FC<Props> = ({ children }) => {
 
   const setOptions = async () => {
     const options = await getOptions();
-    
+
     dispatch({
       type: '[quiz] - set countries',
       payload: options,
@@ -52,19 +52,24 @@ export const QuizProvider: React.FC<Props> = ({ children }) => {
   };
 
   const setAnswer = async () => {
-    const country = state.options[Math.floor(Math.random() * 4)];
-    const { data } = await countriesApi.get<Country[]>(
-      `/name/${country}?fullText=true`
-    );
+    try {
+      const country = state.options[Math.floor(Math.random() * 4)];
+      const { data } = await countriesApi.get<Country[]>(
+        `/name/${country}?fullText=true`
+      );
 
-    dispatch({
-      type: '[quiz] - set correct answer',
-      payload: {
-        capital: data[0].capital[0],
-        flag: data[0].flags.svg,
-        name: data[0].name.common,
-      },
-    });
+      dispatch({
+        type: '[quiz] - set correct answer',
+        payload: {
+          capital: data[0].capital[0],
+          flag: data[0].flags.svg,
+          name: data[0].name.common,
+        },
+      });
+    } catch (error) {
+      console.error(error);
+      setOptions();
+    }
   };
 
   const finishGame = () => {
