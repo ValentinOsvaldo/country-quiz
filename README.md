@@ -35,6 +35,8 @@
 ### Built With
 
 - [React](https://reactjs.org/)
+- Context API
+- CSS Modules
 
 ## Features
 
@@ -50,7 +52,7 @@ $ git clone https://github.com/ValentinOsvaldo/country-quiz
 $ pnpm install
 
 # Run the app
-$ pnpm run dev
+$ pnpm dev
 ```
 
 ## Contact
