@@ -1,16 +1,24 @@
 import { useContext } from 'react';
 import { QuizContext } from '../../context';
 import { Layout } from '../../layouts';
-import { Buttons, Question, Options } from '../';
+import { Buttons, Question, Options, Loader } from '../';
 
 export const QuizGame = () => {
-  const { userAnswer, options } = useContext(QuizContext);
+  const { userAnswer, options, isLoading } = useContext(QuizContext);
 
   return (
     <Layout>
-      <Question />
-      <Options options={options} />
-      {!!userAnswer && <Buttons />}
+      {isLoading ? (
+        <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
+          <Loader />
+        </div>
+      ) : (
+        <>
+          <Question />
+          <Options options={options} />
+          {!!userAnswer && <Buttons />}
+        </>
+      )}
     </Layout>
   );
 };
